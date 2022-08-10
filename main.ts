@@ -1,4 +1,8 @@
-let mySprite = sprites.create(img`
+scene.onHitWall(SpriteKind.Player, function (sprite, location) {
+    mySprite.startEffect(effects.spray, 500)
+})
+let mySprite: Sprite = null
+mySprite = sprites.create(img`
     . . 4 4 4 . . . . 4 4 4 . . . . 
     . 4 5 5 5 e . . e 5 5 5 4 . . . 
     4 5 5 5 5 5 e e 5 5 5 5 5 4 . . 
