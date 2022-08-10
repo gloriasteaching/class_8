@@ -1,6 +1,12 @@
 scene.onHitWall(SpriteKind.Player, function (sprite, location) {
     mySprite.startEffect(effects.spray, 500)
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
+    mySprite = sprite
+    mySprite2 = otherSprite
+    mySprite2.destroy(effects.fire, 500)
+})
+let mySprite2: Sprite = null
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
     . . 4 4 4 . . . . 4 4 4 . . . . 
@@ -18,7 +24,7 @@ mySprite = sprites.create(img`
     . . . f 5 f f f 5 f f 5 f . . . 
     . . . f f . . f f . . f f . . . 
     `, SpriteKind.Player)
-let mySprite2 = sprites.create(img`
+mySprite2 = sprites.create(img`
     e e e . . . . e e e . . . . 
     c d d c . . c d d c . . . . 
     c b d d f f d d b c . . . . 
@@ -35,6 +41,7 @@ let mySprite2 = sprites.create(img`
     . f f . . f f . . f f . . . 
     `, SpriteKind.Player)
 mySprite.setPosition(120, 22)
+mySprite2.setPosition(121, 56)
 controller.moveSprite(mySprite)
 scene.setBackgroundImage(img`
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
