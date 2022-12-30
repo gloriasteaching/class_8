@@ -4,7 +4,7 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
     mySprite = sprite
     mySprite2 = otherSprite
-    mySprite2.destroy(effects.fire, 500)
+    mySprite.destroy(effects.fire, 500)
 })
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
